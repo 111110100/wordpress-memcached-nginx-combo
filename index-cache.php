@@ -28,8 +28,9 @@ if (! $html) {
 }
 
 $finish = microtime(true);
+$cacheExpiry = 'Cached for %d seconds';
 
 echo $html;
-if ($debug) { echo '<-- ' . sprintf($debugMessage, $finish - $start) . ' Cached for ' . strval($cacheTime) . ' seconds -->'; }
+if ($debug) { echo '<-- ' . sprintf($debugMessage, $finish - $start) . ' ' . sprintf($cacheExpiry, $cacheTime) . ' -->'; }
 exit;
 ?>
