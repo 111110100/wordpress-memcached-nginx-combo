@@ -20,7 +20,7 @@ server {
 
 Test, run and you should see some debug stuff at the end of each page
 
-##**Notes**: 
+## Notes: 
 * Use PHP-FPM sockets because it's faster.
 * Play around with ***$cacheTime*** depending on how often you update your site. Homepage is cached 1min, other pages 5mins. 
 * If your site is adaptive, you can comment out the browser checks inside ***memcached.conf***.
