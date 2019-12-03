@@ -1,5 +1,5 @@
 # wordpress-memcached-nginx-combo
-Wordpress full page caching using nginx &amp; memcached. No plugins required.
+Wordpress full page caching using nginx &amp; memcached.** No plugins required.**
 
 Saw this post on [Blazing fast WordPress with Nginx and Memcached](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-and-memcached/)
 
@@ -20,4 +20,7 @@ server {
 
 Test, run and you should see some debug stuff at the end of each page
 
-NOTE: I'm using PHP-FPM because it's awesome.
+##**Notes**: 
+* Use PHP-FPM sockets because it's faster.
+* Play around with ***$cacheTime*** depending on how often you update your site. Homepage is cached 1min, other pages 5mins. 
+* If your site is adaptive, you can comment out the browser checks inside ***memcached.conf***.
