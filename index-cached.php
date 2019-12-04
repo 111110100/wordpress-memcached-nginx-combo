@@ -4,11 +4,11 @@ $debug = True;
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
   if ($s == '/') {
-    $cacheTime = 60;
+    $cacheTime = 60; # homepage 1min
   } elseif (strstr($s, '/tag/') || strstr($s, '/category/')) {
-    $cacheTime = 86400;
+    $cacheTime = 86400; # archive pages 1day
   } else {
-    $cacheTime = 300;
+    $cacheTime = 300; # other pages 5mins
   }
   return $cacheTime;
 }
@@ -44,6 +44,6 @@ $finish = microtime(true);
 $cacheExpiry = 'Cached for %d seconds';
 
 echo $html;
-if ($debug) { echo '<-- ' . sprintf($debugMessage, $finish - $start) . ' ' . sprintf($cacheExpiry, $cacheTime) . ' -->'; }
+if ($debug) echo '<-- ' . sprintf($debugMessage, $finish - $start) . ' ' . sprintf($cacheExpiry, $cacheTime) . ' -->';
 exit;
 ?>
