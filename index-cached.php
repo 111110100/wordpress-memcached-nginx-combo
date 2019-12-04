@@ -1,6 +1,19 @@
 <?php
 $debug = True;
 
+# Values in seconds. Adjust to your own liking.
+function setCacheTime($s) {
+  if ($s == '/') {
+    $cacheTime = 60;
+  } elseif (strstr($s, '/tag/') || strstr($s, '/category/')) {
+    $cacheTime = 86400;
+  } else {
+    $cacheTime = 300;
+  }
+  return $cacheTime;
+}
+
+
 $start = microtime(true);
 
 $memcached = new Memcached();
@@ -9,7 +22,7 @@ $memcached->addServer('127.0.0.1', 11211);
 #$memcached->addServer('/var/run/memcached.sock', 0);
 
 $cacheKey = "fullpage:{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-$cacheTime = $_SERVER['REQUEST_URI'] == '/' ? 60 : 300; # homepage 1min, 5min the rest. Adjust to your own liking.
+$cacheTime = setCacheTime($_SERVER['REQUEST_URI']);
 
 $debugMessage = 'Page retrieved from cache in %f seconds.';
 $html = $memcached->get($cacheKey);
