@@ -5,7 +5,7 @@ Saw this post on [Blazing fast WordPress with Nginx and Memcached](https://wildl
 
 Modified it a bit. Full credit goes up ^
 
-* Put index-cache.php on your WordPress home folder.
+* Put index-cached.php on your WordPress home folder.
 * Put memcached.conf inside /etc/nginx
 * Put the following lines inside your /etc/nginx/sites-enabled/whatever.conf file:
 
