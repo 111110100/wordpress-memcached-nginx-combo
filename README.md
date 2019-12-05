@@ -1,5 +1,5 @@
 # wordpress-memcached-nginx-combo
-Wordpress full page caching using nginx &amp; memcached.** No plugins required.**
+Wordpress full page caching using nginx &amp; memcached. **No plugins required.**
 
 Saw this post on [Blazing fast WordPress with Nginx and Memcached](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-and-memcached/)
 
