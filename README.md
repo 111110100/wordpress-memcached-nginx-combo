@@ -10,7 +10,7 @@ The [original](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-an
 ## How to install
 * Put index-cached.php on your WordPress home folder.
 * Put memcached.conf inside /etc/nginx
-* Put the following lines inside your /etc/nginx/sites-enabled/whatever.conf file:
+* Add the line **include memcached.conf;** inside your /etc/nginx/sites-enabled/whatever.conf file:
 
 ```
 server {
