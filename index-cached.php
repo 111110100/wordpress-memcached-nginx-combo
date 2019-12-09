@@ -5,7 +5,7 @@ $debug = True;
 function setCacheTime($s) {
   if ($s == '/') {
     $cacheTime = 60; # homepage 1min
-  } elseif (strstr($s, '/tag/') || strstr($s, '/category/')) {
+  } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
     $cacheTime = 86400; # archive pages 1day
   } else {
     $cacheTime = 300; # other pages 5mins
@@ -20,6 +20,9 @@ $memcached = new Memcached();
 $memcached->addServer('127.0.0.1', 11211);
 #use line below if memcached is running as socket
 #$memcached->addServer('/var/run/memcached.sock', 0);
+$memcached->setOption( Memcached::OPT_COMPRESSION, false );
+$memcached->setOption( Memcached::OPT_BUFFER_WRITES, true );
+$memcached->setOption( Memcached::OPT_BINARY_PROTOCOL, true );
 
 $cacheKey = "fullpage:{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 $cacheTime = setCacheTime($_SERVER['REQUEST_URI']);
@@ -44,6 +47,6 @@ $finish = microtime(true);
 $cacheExpiry = 'Cached for %d seconds';
 
 echo $html;
-if ($debug) echo '<-- ' . sprintf($debugMessage, $finish - $start) . ' ' . sprintf($cacheExpiry, $cacheTime) . ' -->';
+if ($debug) echo '<!-- ' . sprintf($debugMessage, $finish - $start) . ' ' . sprintf($cacheExpiry, $cacheTime) . ' -->';
 exit;
 ?>
