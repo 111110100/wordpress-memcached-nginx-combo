@@ -1,20 +1,19 @@
 <?php
+$start = microtime(true);
+
 $debug = True;
 
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
   if ($s == '/') {
-    $cacheTime = 60; # homepage 1min
+    $cacheTime = 1800; # homepage 30min
   } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
     $cacheTime = 86400; # archive pages 1day
   } else {
-    $cacheTime = 300; # other pages 5mins
+    $cacheTime = 3600; # other pages 1hr
   }
   return $cacheTime;
 }
-
-
-$start = microtime(true);
 
 $memcached = new Memcached();
 $memcached->addServer('127.0.0.1', 11211);
