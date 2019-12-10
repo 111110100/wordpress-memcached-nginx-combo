@@ -8,8 +8,8 @@ Modified it a bit. Full credit goes [Joseph Wynn](https://twitter.com/Joseph_Wyn
 The [original](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-and-memcached/) relies on PHP to get the content from WordPress and save/get it from Memcached. NginX has a memcached module that can retrieve the content that been set from the PHP code. This will reduce latency as NginX will directly serve the content from Memcached rather than going to PHP. This requires the [ngx_http_memcached_module module](http://nginx.org/en/docs/http/ngx_http_memcached_module.html). Run *nginx -V* to see if it's included in your setup. It's easy to add if it's not.
 
 ## How to install
-* Copy/move index-cached.php on your WordPress home folder.
-* Copy/move memcached.conf inside /etc/nginx
+* Copy/move **index-cached.php** on your WordPress home folder.
+* Copy/move **memcached.conf** inside /etc/nginx
 * Add the line **include memcached.conf;** inside your /etc/nginx/sites-enabled/whatever.conf file:
 
 ```
