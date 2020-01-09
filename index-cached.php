@@ -6,7 +6,7 @@ $debug = True;
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
   if ($s == '/') {
-    $cacheTime = 1800; # homepage 30min
+    $cacheTime = 1800; # homepage 30m
   } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
     $cacheTime = 86400; # archive pages 1day
   } else {
