@@ -28,3 +28,9 @@ Test, run and you should see some debug stuff at the end of each page
 * Play around with ***$cacheTime*** depending on how often you update your site. Homepage is cached 30min, archive pages 1day, other pages 1hr.
 * If your site is responsive, you can comment out the browser checks inside ***memcached.conf***.
 * If you're using W3 Total Cache, disable Full Page Caching for this to work.
+* For additional performance gain, enable query caching in MySQL:
+'''
+query_cache_limit = 1M
+query_cache_size = 16M
+query_cache_type = 1
+'''
