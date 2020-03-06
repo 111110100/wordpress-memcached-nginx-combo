@@ -35,4 +35,4 @@ query_cache_size = 16M
 query_cache_type = 1
 '''
 
-Need help? Email me: elomibao@gmail.com
+Need help? DM me: https://twitter.com/111110100
