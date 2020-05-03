@@ -14,10 +14,10 @@ The [original](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-an
 
 ```
 server {
-  listen 80;
-  root /var/www/your/root/folder;
-  ...
-  include memcached.conf;
+    listen 80;
+    root /var/www/your/root/folder;
+    ...
+    include memcached.conf;
 }
 ```
 
