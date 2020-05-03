@@ -1,9 +1,9 @@
 # wordpress-memcached-nginx-combo
 Wordpress full page caching using NGINX &amp; Memcached. **No plugins required.**
 
-Saw this post on [Blazing fast WordPress with Nginx and Memcached](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-and-memcached/)
+I saw this post on [Blazing fast WordPress with Nginx and Memcached](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-and-memcached/)
 
-Modified it a bit. Full credit goes to [Joseph Wynn](https://twitter.com/Joseph_Wynn)
+I modified it a bit. Full credit goes to [Joseph Wynn](https://twitter.com/Joseph_Wynn)
 
 The [original](https://wildlyinaccurate.com/blazing-fast-wordpress-with-nginx-and-memcached/) relies on PHP to get the content from WordPress and save/get it from Memcached. NGINX has a memcached module that can retrieve the content that been set from the PHP code. This will reduce latency as NGINX will directly serve the content from Memcached rather than going to PHP. This requires the [ngx_http_memcached_module module](http://nginx.org/en/docs/http/ngx_http_memcached_module.html). Run *nginx -V* to see if it's included in your setup. It's easy to add if it's not.
 
@@ -34,5 +34,8 @@ query_cache_limit = 1M
 query_cache_size = 16M
 query_cache_type = 1
 '''
+
+## TODOS:
+* Make a plugin that will automatically purge post from Memcached when saved.
 
 Need help? DM me: https://twitter.com/111110100
