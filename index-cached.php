@@ -5,14 +5,14 @@ $debug = True;
 
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
-  if ($s == '/') {
-    $cacheTime = 1800; # homepage 30m
-  } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
-    $cacheTime = 86400; # archive pages 1day
-  } else {
-    $cacheTime = 3600; # other pages 1hr
-  }
-  return $cacheTime;
+    if ($s == '/') {
+        $cacheTime = 1800; # homepage 30m
+    } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
+        $cacheTime = 86400; # archive pages 1day
+    } else {
+        $cacheTime = 3600; # other pages 1hr
+    }
+    return $cacheTime;
 }
 
 $memcached = new Memcached();
@@ -30,16 +30,16 @@ $debugMessage = 'Page retrieved from cache in %f seconds.';
 $html = $memcached->get($cacheKey);
 
 if (! $html) {
-  $debugMessage = 'Page generated in %f seconds.';
+    $debugMessage = 'Page generated in %f seconds.';
 
-  ob_start();
+    ob_start();
 
-  require 'index.php';
-  $html = ob_get_contents();
+    require 'index.php';
+    $html = ob_get_contents();
 
-  $memcached->set($cacheKey, $html, $cacheTime);
+    $memcached->set($cacheKey, $html, $cacheTime);
 
-  ob_end_clean();
+    ob_end_clean();
 }
 
 $finish = microtime(true);
