@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package inde-cached.php
+ * @author eriwn lomibao
+ * @version 2.0
+ * @license commercial
+ * @website https://github.com/111110100/wordpress-memcached-nginx-combo
+ */
+
 $start = microtime(true);
 
 $debug = True;
