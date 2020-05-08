@@ -42,6 +42,8 @@ if (! $html) {
     ob_end_clean();
 }
 
+$memcached->quit();
+
 $finish = microtime(true);
 $cacheExpiry = 'Cached for %d seconds';
 

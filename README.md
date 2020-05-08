@@ -29,11 +29,12 @@ Test, run and you should see some debug stuff at the end of each page
 * If your site is responsive, you can comment out the browser checks inside ***memcached.conf***.
 * If you're using W3 Total Cache, disable Full Page Caching for this to work.
 * For additional performance gain, enable query caching in MySQL:
-'''
+
+```
 query_cache_limit = 1M
 query_cache_size = 16M
 query_cache_type = 1
-'''
+```
 
 ## TODOS:
 * Make a plugin that will automatically purge post from Memcached when saved.
