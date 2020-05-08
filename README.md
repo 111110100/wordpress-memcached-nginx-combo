@@ -37,6 +37,6 @@ query_cache_type = 1
 ```
 
 ## TODOS:
-* Make a plugin that will automatically purge post from Memcached when saved.
+* Make a plugin that will automatically purge post from Memcached when saved. [DONE]
 
 Need help? DM me: https://twitter.com/111110100
