@@ -13,6 +13,8 @@
  * Author URI: https://github.com/111110100/wordpress-memcached-nginx-combo
  */
 
+defined( 'ABSPATH' ) || exit;
+
 function wpb_change_search_url() {
     if ( is_search() && ! empty( $_GET['s'] ) ) {
         wp_redirect( home_url( "/search/" ) . urlencode( get_query_var( 's' ) ) );
