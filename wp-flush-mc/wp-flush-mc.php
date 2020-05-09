@@ -7,7 +7,7 @@
  * 
  * @wordpress-plugin
  * Plugin Name: Wordpress Flush Memory Cache
- * Description: Accompanying plugin for https://github.com/111110100/wordpress-memcached-nginx-combo
+ * Description: Flushes site and post data in Memcached. Accompanying plugin for https://github.com/111110100/wordpress-memcached-nginx-combo
  * Version: 1.0
  * Author: Erwin Lomibao
  * Author URI: https://github.com/111110100/wordpress-memcached-nginx-combo
