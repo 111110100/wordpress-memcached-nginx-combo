@@ -1,6 +1,6 @@
 <?php
 /**
- * @package inde-cached.php
+ * @package index-cached.php
  * @author eriwn lomibao
  * @version 2.0
  * @license commercial
