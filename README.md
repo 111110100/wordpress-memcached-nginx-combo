@@ -39,6 +39,6 @@ query_cache_type = 1
 ## TODOS:
 * Make a plugin that will automatically purge post from Memcached when saved. **DONE**
 * Make a plugin that will make search results SEO friendly and cacheable. **DONE**
-* **BUG**: RSS Feeds and JSON returns text/html instead of application/rss+xml & application/json respectively.
+* **BUG**: RSS Feeds and JSON returns text/html instead of application/rss+xml & application/json respectively. **DONE**
 
 Need help? DM me: https://twitter.com/111110100
