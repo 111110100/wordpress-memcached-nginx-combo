@@ -21,7 +21,9 @@ server {
 }
 ```
 
-Test, run and you should see some debug stuff at the end of each page
+* I've added a file ```security.conf``` if you want to secure your WordPress site further. To use it, copy/move **security.conf** inside */etc/nginx*, then add this line: ```#include security.conf;``` below ```include memcached.conf```.
+
+Test, run and you should see some debug stuff at the end of each page when a page gets cached for the first time. Subsequent caches will not display the debug stuff because it's being served directly by nginx.
 
 ## Notes:
 * Use PHP-FPM sockets because it's faster.
@@ -39,6 +41,6 @@ query_cache_type = 1
 ## TODOS:
 * Make a plugin that will automatically purge post from Memcached when saved. **DONE**
 * Make a plugin that will make search results SEO friendly and cacheable. **DONE**
-* **BUG**: RSS Feeds and JSON returns text/html instead of application/rss+xml & application/json respectively. **DONE**
+* RSS Feeds and JSON returns text/html instead of application/rss+xml & application/json respectively. **FIXED**
 
 Need help? DM me: https://twitter.com/111110100
