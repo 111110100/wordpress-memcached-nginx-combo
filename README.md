@@ -21,7 +21,7 @@ server {
 }
 ```
 
-* I've added a file ```security.conf``` if you want to secure your WordPress site further. To use it, copy/move **security.conf** inside */etc/nginx*, then add this line: ```#include security.conf;``` below ```include memcached.conf```.
+* I've added a file ```security.conf``` if you want to secure your WordPress site further. To use it, copy/move **security.conf** inside */etc/nginx*, then add this line: ```include security.conf;``` below ```include memcached.conf```.
 
 Test, run and you should see some debug stuff at the end of each page when a page gets cached for the first time. Subsequent caches will not display the debug stuff because it's being served directly by nginx.
 
