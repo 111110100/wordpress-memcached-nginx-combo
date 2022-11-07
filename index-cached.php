@@ -1,7 +1,7 @@
 <?php
 /**
  * @package index-cached.php
- * @author eriwn lomibao
+ * @author joseph wynn/erwin lomibao
  * @version 2.0
  * @license commercial
  * @website https://github.com/111110100/wordpress-memcached-nginx-combo
@@ -14,11 +14,11 @@ $debug = True;
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
     if ($s == '/') {
-        $cacheTime = 1800; # homepage 30m
+        $cacheTime = 1800; # homepage 30m; change this to 0 if using my plugin
     } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
         $cacheTime = 86400; # archive pages 1day
     } else {
-        $cacheTime = 3600; # other pages 1hr
+        $cacheTime = 3600; # other pages 1hr; change this to 0 if using my plugin
     }
     return $cacheTime;
 }
