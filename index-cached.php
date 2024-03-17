@@ -10,18 +10,25 @@
 $start = microtime(true);
 
 $debug = True;
+$contentType = "Content-Type: text/html";
 
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
     if ($s == '/') {
         $cacheTime = 1800; # homepage 30m; change this to 0 if using my plugin
-    } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/')) {
+    } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/') || strstr($s, '/search/')) {
         $cacheTime = 86400; # archive pages 1day
+    } elseif (strstr($s, '/feed/')) {
+        $contentType = "application/rss+xml"; # set content type for rss feeds
+    } elseif (strstr($s, '/atom/')) {
+        $contentType = "application/atom+xml";# set content type for rss feeds
     } else {
         $cacheTime = 3600; # other pages 1hr; change this to 0 if using my plugin
     }
     return $cacheTime;
 }
+
+header($contentType);
 
 $memcached = new Memcached();
 $memcached->addServer('127.0.0.1', 11211);
