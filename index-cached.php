@@ -15,7 +15,7 @@ $contentType = "Content-Type: text/html";
 # Values in seconds. Adjust to your own liking.
 function setCacheTime($s) {
     if ($s == '/') {
-        $cacheTime = 1800; # homepage 30m; change this to 0 if using my plugin
+        $cacheTime = 1800; # homepage 30m
     } elseif (strstr($s, '/tag/') || strstr($s, '/category/') || strstr($s, '/author/') || strstr($s, '/search/')) {
         $cacheTime = 86400; # archive pages 1day
     } elseif (strstr($s, '/feed/')) {
